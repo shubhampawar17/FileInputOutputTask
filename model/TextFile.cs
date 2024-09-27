@@ -27,13 +27,16 @@ namespace FileInputOutputTask.model
             Console.WriteLine("Writing to Text File");
         }
 
-        public static void AppendTextFile(string name)
+        public static void AppendTextFile(string namess)
         {
-            using (StreamWriter sw = File.AppendText(filePath))
+            
+            string path = "E:\\Monocept\\Mithril Task\\Task\\Task 1 26-09-24\\FileInputOutputTask\\model\\TextDocument.txt";
+            using (StreamWriter sw = new StreamWriter(path , true))
             {
-                sw.WriteLine(name);
+                sw.WriteLine(namess);
             }
         }
+
     }
 }
 

@@ -23,20 +23,16 @@ namespace FileInputOutputTask.model
 
             public static void WriteHtmlFile()
             {
-                // Write basic HTML structure if the file doesn't exist
                 File.WriteAllText(filePath, "<html><body>This is Writing HTML file</body></html>");
                 Console.WriteLine("Writing to HTML File");
             }
 
             public static void AppendHtmlFile(string name)
             {
-                // Read the existing content or create basic HTML if file doesn't exist
                 string content = File.Exists(filePath) ? File.ReadAllText(filePath) : "<html><body></body></html>";
 
-                // Append the new name just before the closing body tag
                 content = content.Replace("</body>", $"{name}<br /></body>");
 
-                // Write back the updated content to the file
                 File.WriteAllText(filePath, content);
             }
         }

@@ -25,7 +25,6 @@ namespace FileInputOutputTask.model
 
         public static void WriteXmlFile()
         {
-            // Write basic XML structure if the file doesn't exist
             File.WriteAllText(filePath, "<Users></Users>");
             Console.WriteLine("Writing to XML file");
         }
@@ -34,7 +33,6 @@ namespace FileInputOutputTask.model
         {
             XmlDocument doc = new XmlDocument();
 
-            // Load the file if it exists, otherwise create a new XML structure
             if (File.Exists(filePath))
             {
                 doc.Load(filePath);
@@ -44,13 +42,10 @@ namespace FileInputOutputTask.model
                 XmlElement root = doc.CreateElement("Users");
                 doc.AppendChild(root);
             }
-
-            // Create and append the new <User> element with the username
             XmlElement userElement = doc.CreateElement("User");
             userElement.InnerText = name;
             doc.DocumentElement.AppendChild(userElement);
 
-            // Save the updated XML file
             doc.Save(filePath);
         }
     }
